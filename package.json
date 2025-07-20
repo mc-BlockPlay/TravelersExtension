@@ -1,0 +1,20 @@
+{
+    "name": "TravelersExtension",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "cmca watch",
+        "export": "cmca run export"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@minecraft/server": "^2.0.0",
+        "@minecraft/server-ui": "^2.0.0",
+        "cmca-build": "^0.2.2",
+        "esbuild": "^0.25.6",
+        "typescript": "^5.8.3"
+    },
+    "type": "module"
+}

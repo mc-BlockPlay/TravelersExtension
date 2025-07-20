@@ -1,0 +1,58 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "TravelersExtension",
+        "description": "Made by the BlockPlay Team <3!  BEWARE THIS PACK IS STILL IN ALPHA AND NOT FINISHED AT ALL",
+        "min_engine_version": [
+            1,
+            19,
+            60
+        ],
+        "uuid": "ff4a48a2-6410-4b12-aeff-f930b2671bb1",
+        "version": [
+            0,
+            0,
+            1
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "6544f365-4447-4fa1-b02c-ac81c5d4dc3f",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "uuid": "626d35df-e64d-4637-a8c1-ca52b573c352",
+            "entry": "scripts/main.js",
+            "version": [
+                1,
+                0,
+                0
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "32f424b7-351b-4392-865b-c71eb5b4a14b",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        },
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.0.0"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "2.0.0"
+        }
+    ]
+}

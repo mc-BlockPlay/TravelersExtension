@@ -1,0 +1,28 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.backpack.flap": {
+			"loop": true,
+			"bones": {
+				"Link1": {
+					"rotation": ["math.clamp(query.cape_flap_amount, 0, 0.5) * math.cos(50 - query.modified_distance_moved * 18) * 13", 0, 0]
+				},
+				"Link2": {
+					"rotation": ["math.clamp(query.cape_flap_amount, 0, 0.5) * math.cos(122 - query.modified_distance_moved * 18) * 13", 0, 0]
+				},
+				"Link3": {
+					"rotation": ["math.clamp(query.cape_flap_amount, 0, 0.5) * math.cos(176 - query.modified_distance_moved * 18) * 13", 0, 0]
+				},
+				"Hang": {
+					"rotation": ["math.clamp(query.cape_flap_amount, 0, 0.5) * math.cos(230 - query.modified_distance_moved * 18) * 13", 0, 0]
+				},
+				"Link4": {
+					"rotation": ["math.clamp(query.cape_flap_amount, 0, 0.5) * math.cos(212 - query.modified_distance_moved * 18) * 13", 0, 0]
+				},
+				"Chain": {
+					"rotation": ["math.clamp(query.cape_flap_amount, 0, 0.5) * math.cos(50 - query.modified_distance_moved * 18) * 13", 0, 0]
+				}
+			}
+		}
+	}
+}

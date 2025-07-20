@@ -1,0 +1,65 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.1.json",
+    "author": "cmca",
+    "name": "TravelersExtension",
+    "packs": {
+        "behaviorPack": "./src/BP",
+        "resourcePack": "./src/RP"
+    },
+    "regolith": {
+        "dataPath": "./src/data",
+        "filterDefinitions": {
+            "cmcaBuild": {
+                "runWith": "shell",
+                "command": "cmca-build.cmd"
+            }
+        },
+        "profiles": {
+            "default": {
+                "filters": [
+                    {
+                        "filter": "cmcaBuild",
+                        "settings": {
+                            "\"envMode\"": "\"dev\"",
+                            "\"bundlerType\"": "\"esbuild\"",
+                            "\"ts\"": "\"true\""
+                        }
+                    }
+                ],
+                "export": {
+                    "target": "development"
+                }
+            },
+            "preview": {
+                "filters": [
+                    {
+                        "filter": "cmcaBuild",
+                        "settings": {
+                            "\"envMode\"": "\"dev\"",
+                            "\"bundlerType\"": "\"esbuild\"",
+                            "\"ts\"": "\"true\""
+                        }
+                    }
+                ],
+                "export": {
+                    "target": "preview"
+                }
+            },
+            "export": {
+                "filters": [
+                    {
+                        "filter": "cmcaBuild",
+                        "settings": {
+                            "\"envMode\"": "\"release\"",
+                            "\"bundlerType\"": "\"esbuild\"",
+                            "\"ts\"": "\"true\""
+                        }
+                    }
+                ],
+                "export": {
+                    "target": "local"
+                }
+            }
+        }
+    }
+}

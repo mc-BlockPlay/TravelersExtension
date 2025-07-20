@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"geometry.backpack_v1": {
+		"texturewidth": 64,
+		"textureheight": 64,
+		"visible_bounds_width": 2,
+		"visible_bounds_height": 2,
+		"visible_bounds_offset": [0, 1, 0],
+		"bones": [
+			{
+				"name": "body",
+				"pivot": [0, 0, 0]
+			},
+			{
+				"name": "backpack",
+				"parent": "body",
+				"pivot": [0, 24, 0],
+				"cubes": [
+					{"origin": [-5, 13, 2], "size": [10, 10, 4], "uv": [0, 0]},
+					{"origin": [-4, 19.7, 1.7], "size": [8, 3.6, 4.6], "uv": [0, 14]},
+					{"origin": [-4, 14, 6], "size": [8, 5, 1], "uv": [0, 21]},
+					{"origin": [-6, 14, 2.4], "size": [1, 5, 3.3], "uv": [0, 27]},
+					{"origin": [5, 14, 2.4], "size": [1, 5, 3.3], "uv": [8, 27]}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,16 @@
+{
+    "format_version": "1.10.0",
+    "render_controllers": {
+        "controller.render.backpack_v1": {
+            "geometry": "Geometry.backpack_v1",
+            "materials": [
+                {
+                    "*": "Material.backpack"
+                }
+            ],
+            "textures": [
+                "Texture.backpack_v1"
+            ]
+        }
+    }
+}

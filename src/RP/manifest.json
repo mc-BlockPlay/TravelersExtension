@@ -1,0 +1,39 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "TravelersExtension",
+        "description": "Made by the BlockPlay Team <3!  BEWARE THIS PACK IS STILL IN ALPHA AND NOT FINISHED AT ALL",
+        "min_engine_version": [
+            1,
+            19,
+            60
+        ],
+        "uuid": "32f424b7-351b-4392-865b-c71eb5b4a14b",
+        "version": [
+            0,
+            0,
+            1
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "7ff71ece-58f3-4bc7-a282-4e38c271262e",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "ff4a48a2-6410-4b12-aeff-f930b2671bb1",
+            "version": [
+                0,
+                0,
+                1
+            ]
+        }
+    ]
+}

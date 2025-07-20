@@ -1,0 +1,16 @@
+{
+    "resource_pack_name": "te",
+    "texture_name": "atlas.items",
+    "texture_data": {
+        "empty_helmet": {
+            "textures": ["textures/ui/empty_armor_slot_helmet"]
+        },
+        "empty_chest": {
+            "textures": ["textures/ui/empty_armor_slot_chestplate"]
+        },
+        "backpack": {
+            "textures": ["textures/backpack/icon"]
+        }
+    
+    }
+}
