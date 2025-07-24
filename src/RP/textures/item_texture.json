@@ -2,15 +2,30 @@
     "resource_pack_name": "te",
     "texture_name": "atlas.items",
     "texture_data": {
-        "empty_helmet": {
-            "textures": ["textures/ui/empty_armor_slot_helmet"]
+        "backpack": {
+            "textures": [
+                "textures/backpack/icon"
+            ]
+        },
+        "empty_nothing": {
+            "textures": [
+                "textures/nothing"
+            ]
         },
         "empty_chest": {
-            "textures": ["textures/ui/empty_armor_slot_chestplate"]
+            "textures": [
+                "textures/ui/empty_armor_slot_chestplate"
+            ]
         },
-        "backpack": {
-            "textures": ["textures/backpack/icon"]
+        "empty_legs": {
+            "textures": [
+                "textures/ui/empty_armor_slot_leggings"
+            ]
+        },
+        "empty_feet": {
+            "textures": [
+                "textures/ui/empty_armor_slot_boots"
+            ]
         }
-    
     }
 }

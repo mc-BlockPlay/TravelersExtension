@@ -343,9 +343,9 @@
                 }
             },
             {
-                "armor_grid": {
+                "backpacknoItem": {
                     "type": "grid",
-                    "layer": 1,
+                    "layer": 10,
                     "size": [
                         18,
                         18
@@ -363,38 +363,374 @@
                     "$item_collection_name": "armor_items",
                     "collection_name": "$item_collection_name",
                     "controls": [
-
                         {
-                            "chest_grid_item@common.container_item": {
+                            "backpack_chest": {
                                 "grid_position": [
                                     0,
                                     1
                                 ],
-                                "$cell_overlay_ref": "crafting.armor_overlay_chest",
-                                "$button_ref": "crafting.no_coalesce_container_slot_button",
-                                "$focus_id_binding_type": "none",
-                                "$focus_id": "armor_item_chest",
-                                "$focus_override_right_binding_type": "none",
-                                "$focus_override_right": "crafting_input_top_left"
+                                "type": "panel",
+                                "size": [
+                                    18,
+                                    18
+                                ],
+                                "controls": [
+                                    {
+                                        "backpack": {
+                                            "type": "panel",
+                                            "size": [
+                                                18,
+                                                18
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "cell": {
+                                                        "type": "image",
+                                                        "layer": 1,
+                                                        "size": [
+                                                            18,
+                                                            18
+                                                        ],
+                                                        "texture": "textures/ui/cell_image"
+                                                    }
+                                                },
+                                                {
+                                                    "armor_data": {
+                                                        "type": "panel",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#hover_text",
+                                                                "binding_name_override": "#alwaystext",
+                                                                "binding_condition": "always",
+                                                                "binding_type": "collection",
+                                                                "binding_collection_name": "$item_collection_name"
+                                                            },
+                                                            {
+                                                                "binding_name": "#hover_text",
+                                                                "binding_name_override": "#displayingtext",
+                                                                "binding_condition": "visibility_changed",
+                                                                "binding_type": "collection",
+                                                                "binding_collection_name": "$item_collection_name"
+                                                            },
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_property_name": "(#alwaystext = #displayingtext)",
+                                                                "target_property_name": "#alwaysequalsdisplay"
+                                                            },
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_property_name": "((#alwaysequalsdisplay or (#alwaystext = '')))",
+                                                                "target_property_name": "#visible"
+                                                            },
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_property_name": "(not ((#displayingtext - '§b§a§c§k§p§a§c§k') = #displayingtext))",
+                                                                "target_property_name": "#IS_THERE_BACKPACK"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "empty@crafting.backpack_empty_overlay": {
+                                                        "bindings": [
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_control_name": "armor_data",
+                                                                "source_property_name": "(not (#IS_THERE_BACKPACK))",
+                                                                "target_property_name": "#visible"
+                                                            }
+                                                        ],
+                                                        "controls": [
+                                                            {
+                                                                "button_slot": {
+                                                                    "bindings": [
+                                                                        {
+                                                                            "source_property_name": "(#CURSOR_AUX = 257)",
+                                                                            "source_control_name": "GLOBAL_INVENTORY_DATA",
+                                                                            "target_property_name": "#visible",
+                                                                            "binding_type": "view"
+                                                                        },
+                                                                        {
+                                                                            "binding_type": "collection_details",
+                                                                            "binding_collection_name": "$item_collection_name",
+                                                                            "binding_condition": "once"
+                                                                        }
+                                                                    ],
+                                                                    "button_mappings": [
+                                                                        {
+                                                                            "from_button_id": "button.menu_select",
+                                                                            "to_button_id": "button.container_take_all_place_all",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.menu_ok",
+                                                                            "to_button_id": "button.container_take_all_place_all",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.controller_back",
+                                                                            "to_button_id": "button.container_take_all_place_all",
+                                                                            "mapping_type": "pressed",
+                                                                            "ignored": "(not $is_ps4)"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.menu_secondary_select",
+                                                                            "to_button_id": "button.container_take_half_place_one",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.controller_select",
+                                                                            "to_button_id": "button.container_take_half_place_one",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.controller_secondary_select",
+                                                                            "to_button_id": "button.container_auto_place",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.menu_select",
+                                                                            "to_button_id": "button.coalesce_stack",
+                                                                            "mapping_type": "double_pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.menu_ok",
+                                                                            "to_button_id": "button.coalesce_stack",
+                                                                            "mapping_type": "double_pressed"
+                                                                        },
+                                                                        {
+                                                                            "to_button_id": "button.shape_drawing",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "to_button_id": "button.container_slot_hovered",
+                                                                            "mapping_type": "pressed"
+                                                                        }
+                                                                    ],
+                                                                    "type": "button",
+                                                                    "size": [
+                                                                        18,
+                                                                        18
+                                                                    ],
+                                                                    "hover_control": "hover",
+                                                                    "controls": [
+                                                                        {
+                                                                            "hover": {
+                                                                                "type": "image",
+                                                                                "size": [
+                                                                                    18,
+                                                                                    18
+                                                                                ],
+                                                                                "texture": "textures/ui/highlight_slot",
+                                                                                "alpha": 0.8,
+                                                                                "controls": [
+                                                                                    {
+                                                                                        "white_border_slot": {
+                                                                                            "type": "image",
+                                                                                            "texture": "textures/ui/focus_border_white",
+                                                                                            "size": [
+                                                                                                "100%",
+                                                                                                "100%"
+                                                                                            ]
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "hover_no_button": {
+                                                                    "bindings": [
+                                                                        {
+                                                                            "source_property_name": "(not (#CURSOR_AUX = 257))",
+                                                                            "source_control_name": "GLOBAL_INVENTORY_DATA",
+                                                                            "target_property_name": "#visible",
+                                                                            "binding_type": "view"
+                                                                        },
+                                                                        {
+                                                                            "binding_type": "collection_details",
+                                                                            "binding_collection_name": "$item_collection_name",
+                                                                            "binding_condition": "once"
+                                                                        }
+                                                                    ],
+                                                                    "button_mappings": [
+                                                                        {
+                                                                            "from_button_id": "button.menu_select",
+                                                                            "to_button_id": "button.do_nothing",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.menu_ok",
+                                                                            "to_button_id": "button.do_nothing",
+                                                                            "mapping_type": "pressed"
+                                                                        }
+                                                                    ],
+                                                                    "type": "button",
+                                                                    "size": [
+                                                                        18,
+                                                                        18
+                                                                    ],
+                                                                    "hover_control": "hover",
+                                                                    "pressed_control": "pressed",
+                                                                    "controls": [
+                                                                        {
+                                                                            "pressed": {
+                                                                                "type": "panel"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "hover": {
+                                                                                "type": "image",
+                                                                                "size": [
+                                                                                    18,
+                                                                                    18
+                                                                                ],
+                                                                                "texture": "textures/ui/highlight_slot",
+                                                                                "alpha": 0.8,
+                                                                                "controls": [
+                                                                                    {
+                                                                                        "white_border_slot": {
+                                                                                            "type": "image",
+                                                                                            "texture": "textures/ui/focus_border_white",
+                                                                                            "size": [
+                                                                                                "100%",
+                                                                                                "100%"
+                                                                                            ]
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "layer": 10
+                                                    }
+                                                },
+                                                {
+                                                    "backpackfull": {
+                                                        "type": "panel",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_control_name": "armor_data",
+                                                                "source_property_name": "(#IS_THERE_BACKPACK)",
+                                                                "target_property_name": "#visible"
+                                                            }
+                                                        ],
+                                                        "layer": 10,
+                                                        "controls": [
+                                                            {
+                                                                "button_controls": {
+                                                                    "type": "button",
+                                                                    "size": [
+                                                                        18,
+                                                                        18
+                                                                    ],
+                                                                    "button_mappings": [
+                                                                        {
+                                                                            "from_button_id": "button.menu_secondary_select",
+                                                                            "to_button_id": "button.backpack_open",
+                                                                            "scope": "global",
+                                                                            "mapping_type": "pressed"
+                                                                        },
+                                                                        {
+                                                                            "from_button_id": "button.menu_select",
+                                                                            "to_button_id": "button.backpack_unequip",
+                                                                            "scope": "global",
+                                                                            "mapping_type": "pressed"
+                                                                        }
+                                                                    ],
+                                                                    "hover_control": "hover",
+                                                                    "controls": [
+                                                                        {
+                                                                            "hover": {
+                                                                                "type": "image",
+                                                                                "size": [
+                                                                                    18,
+                                                                                    18
+                                                                                ],
+                                                                                "texture": "textures/ui/highlight_slot",
+                                                                                "alpha": 0.8,
+                                                                                "controls": [
+                                                                                    {
+                                                                                        "white_border_slot": {
+                                                                                            "type": "image",
+                                                                                            "texture": "textures/ui/focus_border_white",
+                                                                                            "size": [
+                                                                                                "100%",
+                                                                                                "100%"
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    {
+                                                                                        "hover_text": {
+                                                                                            "type": "input_panel",
+                                                                                            "size": [
+                                                                                                0,
+                                                                                                0
+                                                                                            ],
+                                                                                            "layer": -2,
+                                                                                            "always_handle_pointer": true,
+                                                                                            "follows_cursor": true,
+                                                                                            "controls": [
+                                                                                                {
+                                                                                                    "info_text@common.hover_text": {
+                                                                                                        "layer": 40,
+                                                                                                        "property_bag": {
+                                                                                                            "#hover_text": " to unequip\n\n to open/close"
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "backpack": {
+                                                                    "type": "image",
+                                                                    "size": [
+                                                                        16,
+                                                                        16
+                                                                    ],
+                                                                    "texture": "textures/backpack/icon"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
                 }
             }
+            // ,
             // {
             //     "backpack": {
             //         "type": "image",
             //         "layer": 1,
-                    // "size": [
-                    //     18,
-                    //     18
-                    // ],
-                    // "anchor_from": "top_left",
-                    // "anchor_to": "top_left",
-                    // "offset": [
-                    //     97,
-                    //     61
-                    // ],
+            //         "size": [
+            //             18,
+            //             18
+            //         ],
+            //         "anchor_from": "top_left",
+            //         "anchor_to": "top_left",
+            //         "offset": [
+            //             97,
+            //             61
+            //         ],
             //         "texture": "textures/ui/cell_image",
             //         "controls": [
             //             {
@@ -419,72 +755,60 @@
             //                           {
             //                             "from_button_id": "button.menu_ok",
             //                             "to_button_id": "button.backpack_open",                                        "scope": "global",
-
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.controller_back",
             //                             "to_button_id": "button.backpack_open",                                        "scope": "global",
-
             //                             "mapping_type": "pressed",
             //                             "ignored": "(not $is_ps4)"
             //                           },
             //                           {
             //                             "from_button_id": "button.menu_secondary_select",                                        "scope": "global",
-
             //                             "to_button_id": "button.backpack_open",
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.controller_select",                                        "scope": "global",
-
             //                             "to_button_id": "button.backpack_open",
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.menu_auto_place",                                        "scope": "global",
-
             //                             "to_button_id": "button.backpack_open",
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.controller_secondary_select",                                        "scope": "global",
-
             //                             "to_button_id": "button.backpack_open",
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.menu_inventory_drop",                                        "scope": "global",
-
             //                             "to_button_id": "button.backpack_open",
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.menu_inventory_drop_all",                                        "scope": "global",
-
             //                             "to_button_id": "button.backpack_open",
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.menu_select",
             //                             "to_button_id": "button.backpack_open",                                        "scope": "global",
-
             //                             "mapping_type": "double_pressed"
             //                           },
             //                           {
             //                             "from_button_id": "button.menu_ok",
             //                             "to_button_id": "button.backpack_open",                                        "scope": "global",
-
             //                             "mapping_type": "double_pressed"
             //                           },
             //                           {
             //                             "to_button_id": "button.shape_drawing",                                        "scope": "global",
-
             //                             "mapping_type": "pressed"
             //                           },
             //                           {
             //                             "to_button_id": "button.container_slot_hovered",                                        "scope": "global",
-
             //                             "mapping_type": "pressed"
             //                           }
             //                     ],
@@ -558,6 +882,14 @@
             // }
         ]
     },
+    "backpack_empty_overlay": {
+        "type": "image",
+        "size": [
+            16,
+            16
+        ],
+        "texture": "textures/backpack/outline"
+    },
     "backpack_system": {
         "type": "grid",
         "layer": 1,
@@ -620,6 +952,38 @@
                     "button_mappings": [
                         {
                             "from_button_id": "button.backpack_open",
+                            "to_button_id": "button.drop_all",
+                            "consume_event": false,
+                            "mapping_type": "global",
+                            "scope": "global"
+                        },
+                        {
+                            "from_button_id": "button.backpack_unequip",
+                            "to_button_id": "button.drop_all",
+                            "consume_event": false,
+                            "mapping_type": "global",
+                            "scope": "global"
+                        }
+                    ]
+                }
+            },
+            {
+                "legs_grid_item": {
+                    "type": "button",
+                    "grid_position": [
+                        0,
+                        2
+                    ],
+                    "bindings": [
+                        {
+                            "binding_type": "collection_details",
+                            "binding_collection_name": "$item_collection_name",
+                            "binding_condition": "once"
+                        }
+                    ],
+                    "button_mappings": [
+                        {
+                            "from_button_id": "button.backpack_unequip",
                             "to_button_id": "button.drop_all",
                             "consume_event": false,
                             "mapping_type": "global",

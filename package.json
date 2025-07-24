@@ -10,7 +10,8 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@minecraft/server": "^2.0.0",
+        "@minecraft/math": "^2.2.7",
+        "@minecraft/server": "^2.2.0-beta.1.21.100-preview.25",
         "@minecraft/server-ui": "^2.0.0",
         "cmca-build": "^0.2.2",
         "esbuild": "^0.25.6",

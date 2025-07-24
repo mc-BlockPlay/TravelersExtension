@@ -5,7 +5,7 @@
             "identifier": "te:empty_chestplate"
         },
         "components": {
-            "minecraft:icon": "empty_chest",
+            "minecraft:icon": "empty_nothing",
             "minecraft:wearable": {
                 "slot": "slot.armor.chest"
             },
