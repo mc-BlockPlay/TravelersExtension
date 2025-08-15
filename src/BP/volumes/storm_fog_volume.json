@@ -1,0 +1,35 @@
+{
+  "format_version": "1.20.70",
+  "minecraft:volume": {
+    "description": {
+      "identifier": "te:storm_fog_volume"
+    },
+    "components": {
+      "minecraft:bounds": {
+        "shape": "box",
+        "size": [10000, 512, 10000],
+        "origin": [0, 0, 0]
+      },
+      "minecraft:fog": {
+        "fog_identifier": "te:storm_fog",
+        "priority": 100
+      },
+      "minecraft:permitted_conditions": {
+        "conditions": [
+          {
+            "test": "query.is_raining",
+            "subject": "self",
+            "operator": "==",
+            "value": true
+          },
+          {
+            "test": "query.is_underwater",
+            "subject": "self",
+            "operator": "==",
+            "value": false
+          }
+        ]
+      }
+    }
+  }
+}
